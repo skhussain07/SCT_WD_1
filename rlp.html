@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 999;
+    }
+
+    .navbar.scrolled {
+      background-color: #333;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 5px;
+    }
+
+    .navbar a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Page Content */
+    .content {
+      padding-top: 80px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .section {
+      height: 100vh;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="content">
+    <div class="section" id="home">
+      <h1>Home Section</h1>
+      <p>This is the home section. Scroll down to see the nav bar change.</p>
+    </div>
+    <div class="section" id="services">
+      <h1>Services Section</h1>
+      <p>Details about services here.</p>
+    </div>
+    <div class="section" id="projects">
+      <h1>Projects Section</h1>
+      <p>Our project highlights.</p>
+    </div>
+    <div class="section" id="contact">
+      <h1>Contact Section</h1>
+      <p>Contact information and form.</p>
+    </div>
+  </div>
+
+  <script>
+    // Add or remove 'scrolled' class based on scroll position
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
